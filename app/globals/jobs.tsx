@@ -1,6 +1,12 @@
 import Link from "next/link";
 import { HeartIcon } from "@heroicons/react/24/solid";
 
+export enum JobCategory {
+  "coding" = "coding",
+  "teaching" = "teaching",
+  "coordinating" = "coordinating",
+  "organising" = "organising",
+}
 export type Job = {
   companyName: string;
   link?: string;
@@ -9,7 +15,7 @@ export type Job = {
   description: string;
   learning: string | JSX.Element;
   location: string;
-  category?: string;
+  category?: JobCategory;
 };
 export const jobs = [
   {
@@ -34,7 +40,7 @@ export const jobs = [
       </>
     ),
     location: "remote / hamburg, germany",
-    category: "coding",
+    category: JobCategory.coding,
   },
   {
     companyName: "x-ion",
@@ -57,7 +63,7 @@ export const jobs = [
       </>
     ),
     location: "remote / hamburg, germany",
-    category: "coding",
+    category: JobCategory.coding,
   },
   {
     companyName: "south high school",
@@ -75,7 +81,7 @@ export const jobs = [
       </>
     ),
     location: "minneaplis, minnesota, usa",
-    category: "teaching",
+    category: JobCategory.teaching,
   },
   {
     companyName: "minneapolis public schools",

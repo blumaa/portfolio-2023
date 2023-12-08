@@ -8,7 +8,7 @@ const Pill = ({ children }: { children: React.ReactNode }) => {
     <span
       className={`${isDarkMode ? "bg-[#f2f3f4]" : "bg-[#27374d]"} ${
         isDarkMode ? "text-[#27374d]" : "text-[#f2f3f4]"
-      } py-1 px-2 rounded-full`}
+      } py-0.5 px-1 rounded-full text-xs border border-sky-500 shadow-lg`}
     >
       {children}
     </span>
