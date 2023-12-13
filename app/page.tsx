@@ -22,6 +22,7 @@ export default function Home() {
           <div className="flex-col items-center justify-center">
             <div className="flex-col items-center justify-center pb-4">
               <div className="text-4xl">aaron blum</div>
+              <span className="bg-gradient-to-r from-indigo-600 to-sky-400 text-transparent bg-clip-text">aaron blum</span>
             </div>
             <div className="md:flex md:space-x-4 pb-4">
               <div className="flex-col items-center justify-center">
