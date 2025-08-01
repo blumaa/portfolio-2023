@@ -1,20 +1,17 @@
 "use client";
 import WorkCard from "./WorkCard";
 import { AnimatePresence } from "framer-motion";
-import { Job, jobs } from "../globals/jobs";
+import { Job, jobs, JobCategory } from "../globals/jobs";
 import { useEffect, useState } from "react";
-import Pill from "../components/Pill";
+import { Button } from "@mond-design-system/theme";
+import { useThemeContext } from "../context/theme";
 
 export default function Work() {
+  const { isDarkMode } = useThemeContext();
   const [filteredJobs, setFilteredJobs] = useState<Job[]>(jobs);
-  const [filters, setFilters] = useState([
-    "coding",
-    "teaching",
-    "coordinating",
-    "organising",
-  ]);
+  const [filters, setFilters] = useState<JobCategory[]>(Object.values(JobCategory));
 
-  const handleButtonClick = (filter: string) => {
+  const handleButtonClick = (filter: JobCategory) => {
     if (filters.includes(filter)) {
       setFilters(filters.filter((f) => f !== filter));
     } else {
@@ -46,37 +43,17 @@ export default function Work() {
       </div>
       {/* <div className="border self-center border-sky-500 mb-2 w-1/5" /> */}
       <div className="flex items-center mb-2 space-x-2">
-        <Pill
-          onClick={() => {
-            console.log("click");
-            handleButtonClick("coding");
-          }}
-          active={filters.includes("coding")}
-          button
-        >
-          coding
-        </Pill>
-        <Pill
-          onClick={() => handleButtonClick("teaching")}
-          active={filters.includes("teaching")}
-          button
-        >
-          teaching
-        </Pill>
-        <Pill
-          onClick={() => handleButtonClick("coordinating")}
-          active={filters.includes("coordinating")}
-          button
-        >
-          coordinating
-        </Pill>
-        <Pill
-          onClick={() => handleButtonClick("organising")}
-          active={filters.includes("organising")}
-          button
-        >
-          organising
-        </Pill>
+        {Object.values(JobCategory).map((category) => (
+          <Button
+            key={category}
+            onClick={() => handleButtonClick(category)}
+            variant={filters.includes(category) ? "primary" : "outline"}
+            size="sm"
+            isDarkMode={isDarkMode}
+          >
+            {category}
+          </Button>
+        ))}
       </div>
       <AnimatePresence>
         {filteredJobs.map((job) => (
