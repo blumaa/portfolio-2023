@@ -1,32 +1,32 @@
+import Link from "next/link";
 import { ReactElement } from "react";
-import { Link } from "@mond-design-system/theme";
 
 export type CreativeThing = {
   name: string;
   link?: string;
   linkTarget: "_blank" | "_self";
-  description: (isDarkMode: boolean) => string | ReactElement;
+  description: string | ReactElement;
 };
 export const creatives: CreativeThing[] = [
   {
     name: "blumenous poetry",
     link: "https://desmondblume.substack.com/",
     linkTarget: "_blank",
-    description: (isDarkMode: boolean) =>
+    description:
       "i love to write- stories, articles, essays- but i especially like to write poetry. a while ago i started a poetry substack (blog + email newsletter) under my pen name desmond blume.",
   },
   {
     name: "coding animations",
     link: "/animation-gallery",
     linkTarget: "_self",
-    description: (isDarkMode: boolean) =>
+    description:
       "what happens when you combine code and animations? you get to have fun and make cool things! sometimes i go down animation rabbit holes using svgs and differrent coding libraries like framer-motion, gsap, or just regular old css keyframes",
   },
   {
     name: "banjo player",
     link: "#",
     linkTarget: "_self",
-    description: (isDarkMode: boolean) => (
+    description: (
       <>
         &nbsp;although i play guitar, and dabble in the fiddle, for a while i
         really became obsessed with playing the banjo and even joined a group
@@ -34,7 +34,7 @@ export const creatives: CreativeThing[] = [
         <Link
           href="https://wildgoosechasecloggers.org/"
           target="_blank"
-          isDarkMode={isDarkMode}
+          className="underline-offset-1 decoration-sky-500 underline hover:no-underline cursor-pointer"
         >
           wild goose chase cloggers
         </Link>
@@ -43,7 +43,7 @@ export const creatives: CreativeThing[] = [
         <Link
           href="https://www.youtube.com/watch?v=fso_XZiJFDM&t=1s"
           target="_blank"
-          isDarkMode={isDarkMode}
+          className="underline-offset-1 decoration-sky-500 underline hover:no-underline cursor-pointer"
         >
           local television program
         </Link>
@@ -51,7 +51,7 @@ export const creatives: CreativeThing[] = [
         <Link
           href="https://wildgoosechasecloggers.org/wordpress/on-the-embedded-racism-of-some-old-time-tunes-by-aaron-blum/"
           target="_blank"
-          isDarkMode={isDarkMode}
+          className="underline-offset-1 decoration-sky-500 underline hover:no-underline cursor-pointer"
         >
           on the embedded racism of some old-time tunes
         </Link>

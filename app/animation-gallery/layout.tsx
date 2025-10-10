@@ -1,9 +1,5 @@
-"use client";
-
-import { Box } from "@mond-design-system/theme";
-import { useAppTheme } from "../hooks/useAppTheme";
-import { Footer } from "../components/layout/Footer";
-import { Header } from "../components/layout/Header";
+import { Footer } from "../footer/footer";
+import { Header } from "../header/header";
 import AnimatedMoon from "./animations/AnimatedMoon";
 import { AnimatedTitle } from "./animations/AnimatedTitle";
 
@@ -12,22 +8,18 @@ export default function AnimationLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { isDarkMode } = useAppTheme();
-
   return (
-    <Box display="flex" flexDirection="column" minHeight="100vh" bg="surface.background" isDarkMode={isDarkMode}>
+    <div className="flex flex-col h-screen">
       <Header>
-        <Box display="flex" alignItems="center" gap="sm" isDarkMode={isDarkMode}>
-          <Box height="32px" isDarkMode={isDarkMode}>
+        <>
+          <div className="h-8">
             <AnimatedMoon />
-          </Box>
+          </div>
           <AnimatedTitle />
-        </Box>
+        </>
       </Header>
-      <Box flex="1" isDarkMode={isDarkMode}>
-        {children}
-      </Box>
+      <div className="grow">{children}</div>
       <Footer />
-    </Box>
+    </div>
   );
 }

@@ -1,18 +1,12 @@
-"use client";
-
-import { Box } from "@mond-design-system/theme";
-import { useAppTheme } from "../hooks/useAppTheme";
 import { creatives } from "../globals/creatives";
-import CreativeCard from "../components/cards/CreativeCard";
+import CreativeCard from "./CreativeCard";
 
 export default function Work() {
-  const { isDarkMode } = useAppTheme();
-
   return (
-    <Box display="flex" flexDirection="column" alignItems="center" gap="md" pt="md" isDarkMode={isDarkMode}>
+    <div className="flex flex-col items-center space-y-4 pt-4">
       {creatives.map((thing) => (
         <CreativeCard key={thing.name} creativeThing={thing} />
       ))}
-    </Box>
+    </div>
   );
 }
